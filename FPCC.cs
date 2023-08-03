@@ -1,3 +1,11 @@
+// ###########################################
+// ###  FIRST PERSON CHARACTER CONTROLLER ####
+// ###########################################
+// ###BY#MARCUS#VAN#DER#MUNNIK###MUNNICA2023##
+// ################################FPCC#V1.1##
+// ###########################################
+
+
 using UnityEngine;
 using System.Collections;
 using System;
@@ -6,7 +14,7 @@ using UnityEngine.InputSystem;
 using Munnica.THL.Managers;
 using Munnica.THL.Interactives;
 using Munnica.THL.UI;
-using Munnica.THL.Inventories;
+
 
 namespace Munnica.THL.Controllers
 {
@@ -228,7 +236,7 @@ namespace Munnica.THL.Controllers
 
                     break;
 
-                case InputSystem.newInputSystem:
+                case InputSystem.newInputSystem: // REPLACE WITH YOUR OWN SETTINGS
 
                     playerControls.Player.Move.performed += ctx => currentInput = ctx.ReadValue<Vector2>();
                     playerControls.Player.Move.canceled += ctx => currentInput = Vector2.zero;
@@ -236,10 +244,7 @@ namespace Munnica.THL.Controllers
                     playerControls.Player.Look.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
                     playerControls.Player.Look.canceled += ctx => lookInput = Vector2.zero;
 
-                                                            
-
-                    //playerControls.Player.Flashlight.performed += FlashLightController.Instance.FlashLightAction;
-      
+                          
 
                     if (canJump)
                     {
@@ -829,8 +834,7 @@ namespace Munnica.THL.Controllers
                 playerControls.Player.Look.canceled -= ctx => lookInput = Vector2.zero;
 
                 playerControls.Player.Pause.performed -= GameManager.Instance.HandlePause;
-
-                //playerControls.Player.Flashlight.performed += FlashLightController.Instance.SetFlashlight(true);
+                                
 
                 print(gameObject.name + " destroyed!");
             }            
